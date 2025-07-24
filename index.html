@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hosting Selection</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="modal">
+        <header class="header">
+            <div class="close"></div>
+            <div class="heading">
+                <h1 class="heading-title">
+                    <div class="heading-title-text">What would you like to host?</div>
+                </h1>
+            </div>
+        </header>
+        
+        <div class="options">
+            <div class="options-grid">
+                <div class="option-card" data-option="home">
+                    <div class="option-icon home-icon">🏠</div>
+                    <div class="option-text">Home</div>
+                </div>
+                <div class="option-card" data-option="experience">
+                    <div class="option-icon experience-icon">🎈</div>
+                    <div class="option-text">Experience</div>
+                </div>
+            </div>
+            
+            <div class="button-container">
+                <button class="next-button" id="nextButton">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactivity
+        const optionCards = document.querySelectorAll('.option-card');
+        const nextButton = document.getElementById('nextButton');
+
+        optionCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove selected class from all cards
+                optionCards.forEach(c => c.classList.remove('selected'));
+                
+                // Add selected class to clicked card
+                card.classList.add('selected');
+                
+                // Enable next button
+                nextButton.classList.add('active');
+            });
+        });
+
+        // Close button functionality
+        document.querySelector('.close').addEventListener('click', () => {
+            alert('Modal closed');
+        });
+
+        // Next button functionality
+        nextButton.addEventListener('click', () => {
+            const selectedCard = document.querySelector('.option-card.selected');
+            if (selectedCard) {
+                const selectedOption = selectedCard.dataset.option;
+                // Navigate to login/signup form
+                window.location.href = 'login_sign-up.html';
+            }
+        });
+    </script>
+</body>
+</html>
+

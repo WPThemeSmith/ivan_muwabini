@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb Login/Signup</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <button class="back-btn" onclick="window.location.href='index.html'">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-content">
+                <h1 class="modal-title">Log in or sign up</h1>
+                <h2 class="welcome-text">Welcome to Airbnb</h2>
+                
+                <form class="login-form">
+                    <div class="phone-input-container">
+                        <div class="input-group">
+                            <label for="country-code">Country code</label>
+                            <div class="country-select">
+                                <select id="country-code">
+                                    <option value="+880">Bangladesh (+880)</option>
+                                    <option value="+1">United States (+1)</option>
+                                    <option value="+44">United Kingdom (+44)</option>
+                                    <option value="+91">India (+91)</option>
+                                    <option value="+86">China (+86)</option>
+                                </select>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="input-divider"></div>
+                        
+                        <div class="input-group">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone" placeholder="+880" required>
+                        </div>
+                    </div>
+                    
+                    <p class="disclaimer">
+                        We'll call or text you to confirm your number. Standard message and data rates apply. 
+                        <a href="#" class="privacy-link">Privacy Policy</a>
+                    </p>
+                    
+                    <button type="submit" class="continue-btn">Continue</button>
+                </form>
+                
+                <div class="divider">
+                    <span>or</span>
+                </div>
+                
+                <div class="social-buttons">
+                    <button class="social-btn google-btn">
+                        <i class="fab fa-google"></i>
+                        <span>Continue with Google</span>
+                    </button>
+                    
+                    <button class="social-btn apple-btn">
+                        <i class="fab fa-apple"></i>
+                        <span>Continue with Apple</span>
+                    </button>
+                    
+                    <button class="social-btn email-btn">
+                        <i class="fas fa-envelope"></i>
+                        <span>Continue with email</span>
+                    </button>
+                    
+                    <button class="social-btn facebook-btn">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Continue with Facebook</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get elements
+        const countrySelect = document.getElementById('country-code');
+        const phoneInput = document.getElementById('phone');
+        
+        // Function to update phone placeholder with selected country code
+        function updatePhonePlaceholder() {
+            const selectedOption = countrySelect.options[countrySelect.selectedIndex];
+            const countryCode = selectedOption.value;
+            phoneInput.placeholder = countryCode;
+        }
+        
+        // Update placeholder when country is changed
+        countrySelect.addEventListener('change', updatePhonePlaceholder);
+        
+        // Update placeholder when phone field is focused
+        phoneInput.addEventListener('focus', updatePhonePlaceholder);
+        
+        // Initialize with default country code
+        updatePhonePlaceholder();
+    </script>
+</body>
+</html> 

@@ -1,0 +1,599 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ===== HOSTING SELECTION MODAL STYLES ===== */
+.modal {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.header {
+    padding: 24px 24px 0 24px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #666;
+    font-weight: bold;
+}
+
+.close::before {
+    content: '×';
+}
+
+.heading {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.heading-title-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 32px;
+}
+
+.options {
+    padding: 0 24px 24px 24px;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.option-card {
+    background: #f8f9fa;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 20px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.option-card:hover {
+    border-color: #007bff;
+    background: #f0f8ff;
+}
+
+.option-card.selected {
+    border-color: #007bff;
+    background: #f0f8ff;
+}
+
+.option-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.option-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.button-container {
+    padding: 0 24px 24px 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-button {
+    background: #e0e0e0;
+    color: #999;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.next-button.active {
+    background: #007bff;
+    color: white;
+}
+
+.next-button.active:hover {
+    background: #0056b3;
+}
+
+/* Icon styles */
+.home-icon {
+    color: #666;
+}
+
+.experience-icon {
+    color: #ff6b35;
+}
+
+.service-icon {
+    color: #666;
+}
+
+/* ===== LOGIN/SIGNUP MODAL STYLES ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-overlay .modal {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 16px 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #717171;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+    background-color: #f7f7f7;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #717171;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #f7f7f7;
+}
+
+.modal-content {
+    padding: 0 24px 24px;
+}
+
+.modal-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #222222;
+    margin-bottom: 8px;
+}
+
+.welcome-text {
+    font-size: 16px;
+    color: #717171;
+    font-weight: 400;
+    margin-bottom: 24px;
+}
+
+.login-form {
+    margin-bottom: 24px;
+}
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.phone-input-container {
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.phone-input-container .input-group {
+    margin-bottom: 0;
+    padding: 5px 15px;
+}
+
+.phone-input-container .input-group:first-child {
+    border-bottom: 1px solid #dddddd;
+}
+
+.phone-input-container .input-group label {
+    font-size: 12px;
+    color: #717171;
+    margin-bottom: 4px;
+}
+
+.input-divider {
+    height: 1px;
+    background: #dddddd;
+    margin: 0;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #222222;
+    margin-bottom: 8px;
+}
+
+.country-select {
+    position: relative;
+}
+
+.country-select select {
+    width: 100%;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 400;
+    color: #222222;
+}
+
+.country-select i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #717171;
+    pointer-events: none;
+}
+
+.input-group input[type="tel"] {
+    width: 100%;
+    padding: 0;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    background: transparent;
+}
+
+.input-group input[type="tel"]:focus {
+    border-color: #222222;
+}
+
+.disclaimer {
+    font-size: 12px;
+    color: #717171;
+    line-height: 1.4;
+    margin-bottom: 24px;
+}
+
+.privacy-link {
+    color: #222222;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.continue-btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #ff385c 0%, #e31c5f 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.continue-btn:hover {
+    transform: translateY(-1px);
+}
+
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 24px 0;
+    padding: 10px;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #dddddd;
+}
+
+.divider span {
+    background: white;
+    padding: 0 16px;
+    color: #717171;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 24px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background: white;
+    color: #222222;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.social-btn:hover {
+    border-color: #222222;
+    background-color: #f7f7f7;
+}
+
+.social-btn i {
+    font-size: 18px;
+}
+
+.google-btn i {
+    color: #4285f4;
+}
+
+.apple-btn i {
+    color: #000000;
+}
+
+.email-btn i {
+    color: #717171;
+}
+
+.facebook-btn i {
+    color: #1877f2;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .modal-overlay .modal {
+        margin: 20px;
+        max-width: none;
+    }
+    
+    .modal-content {
+        padding: 0 20px 20px;
+    }
+    
+    .modal-title {
+        font-size: 20px;
+    }
+    
+    .social-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+} 
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.header {
+    padding: 24px 24px 0 24px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #666;
+    font-weight: bold;
+}
+
+.close::before {
+    content: '×';
+}
+
+.heading {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.heading-title-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 32px;
+}
+
+.options {
+    padding: 0 24px 24px 24px;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.option-card {
+    background: #f8f9fa;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 20px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.option-card:hover {
+    border-color: #007bff;
+    background: #f0f8ff;
+}
+
+.option-card.selected {
+    border-color: #007bff;
+    background: #f0f8ff;
+}
+
+.option-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.option-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.button-container {
+    padding: 0 24px 24px 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-button {
+    background: #e0e0e0;
+    color: #999;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.next-button.active {
+    background: #007bff;
+    color: white;
+}
+
+.next-button.active:hover {
+    background: #0056b3;
+}
+
+/* Icon styles */
+.home-icon {
+    color: #666;
+}
+
+.experience-icon {
+    color: #ff6b35;
+}
+
+.service-icon {
+    color: #666;
+}
