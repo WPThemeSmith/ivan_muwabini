@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guest Place Type</title>
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #222;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+/* Top bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 30px;
+}
+
+.top-right {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-outline {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Main section */
+.main {
+  margin-top: 60px;
+}
+
+.question {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.option-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.5px solid #e5e5e5;
+  padding: 18px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.option-card:hover {
+  background-color: #f9f9f9;
+}
+
+.option-card.selected {
+  border: 2px solid #222;
+  background-color: #f7f7f7;
+}
+
+.option-text h4 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.option-text p {
+  font-size: 14px;
+  color: #555;
+}
+
+.option-icon {
+  font-size: 24px;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  border-top: 2px solid #eee;
+}
+
+.back-link {
+  font-size: 14px;
+  text-decoration: underline;
+  color: #222;
+  cursor: pointer;
+}
+
+.next-btn {
+  background-color: #222;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top bar -->
+    <div class="top-bar">
+      <h2>logo</h2>
+      <div class="top-right">
+        <button class="btn-outline">Questions?</button>
+        <button class="btn-outline">Save & exit</button>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+      <h2 class="question">What type of place will guests have?</h2>
+
+      <div class="option-list">
+        <div class="option-card selected" onclick="selectOption(this)">
+          <div class="option-text">
+            <h4>An entire place</h4>
+            <p>Guests have the whole place to themselves.</p>
+          </div>
+          <div class="option-icon">🏠</div>
+        </div>
+
+        <div class="option-card" onclick="selectOption(this)">
+          <div class="option-text">
+            <h4>A room</h4>
+            <p>Guests have their own room in a home, plus access to shared spaces.</p>
+          </div>
+          <div class="option-icon">🚪</div>
+        </div>
+
+        <div class="option-card" onclick="selectOption(this)">
+          <div class="option-text">
+            <h4>A shared room in a hostel</h4>
+            <p>Guests sleep in a shared room in a professionally managed hostel with staff onsite 24/7.</p>
+          </div>
+          <div class="option-icon">👥</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <a class="back-link" href="home_step_1_1.html">Back</a>
+      <button class="next-btn" onclick="goNext()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    function selectOption(el) {
+      document.querySelectorAll(".option-card").forEach(card => {
+        card.classList.remove("selected");
+      });
+      el.classList.add("selected");
+    }
+
+    function goNext() {
+      window.location.href = 'home_step_1_3.html';
+    }
+  </script>
+</body>
+</html>

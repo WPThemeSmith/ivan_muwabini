@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Your Place</title>
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #222;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 30px;
+}
+
+.action-buttons button {
+  margin-left: 10px;
+  border: 1px solid #ddd;
+  background: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  border: 1px solid #e5e5e5;
+  padding: 18px;
+  text-align: center;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover, .card.selected {
+  border-color: #000;
+  background-color: #fafafa;
+}
+
+.card-icon {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.back-link {
+  text-decoration: underline;
+  color: #222;
+  font-size: 14px;
+}
+
+.next-btn {
+  background: #000;
+  color: white;
+  padding: 10px 26px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.next-btn.enabled {
+  cursor: pointer;
+  opacity: 1;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>logo</h2>
+      <div class="action-buttons">
+        <button class="secondary">Questions?</button>
+        <button class="secondary">Save & exit</button>
+      </div>
+    </div>
+    <h2 class="title">Which of these best describes your place?</h2>
+
+    <div class="grid">
+      <!-- JS will populate cards here -->
+    </div>
+
+    <div class="footer">
+      <a href="home_step_1.html" class="back-link">Back</a>
+      <button class="next-btn" id="nextBtn" disabled>Next</button>
+    </div>
+  </div>
+
+  <script>
+    const places = [
+  "House", "Apartment", "Barn", "Bed & breakfast", "Boat", "Cabin",
+  "Camper/RV", "Casa particular", "Castle", "Cave", "Container", "Cycladic home",
+  "Dammuso", "Dome", "Earth home", "Farm", "Guesthouse", "Hotel"
+];
+
+const grid = document.querySelector(".grid");
+const nextBtn = document.getElementById("nextBtn");
+
+places.forEach(place => {
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.innerHTML = `
+    <div class="card-icon">🏠</div>
+    <div class="card-title">${place}</div>
+  `;
+  card.addEventListener("click", () => {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove("selected"));
+    card.classList.add("selected");
+    nextBtn.classList.add("enabled");
+    nextBtn.disabled = false;
+    nextBtn.addEventListener("click", () => {
+       window.location.href = 'home_step_1_2.html';
+    });
+  });
+  grid.appendChild(card);
+});
+
+  </script>
+</body>
+</html>
+

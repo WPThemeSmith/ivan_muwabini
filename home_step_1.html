@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Step 1 - Tell us about your place</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #222;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+/* Header */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 30px;
+}
+
+.top-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-outline {
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Content */
+.content {
+  margin-top: 100px;
+  max-width: 650px;
+}
+
+.step-label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.step-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.step-desc {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #f2f2f2;
+  padding: 20px 0;
+}
+
+.back-link {
+  color: #222;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.next-btn {
+  background-color: #222;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="top-bar">
+      <h2>logo</h2>
+      <div class="top-actions">
+        <button class="btn-outline">Questions?</button>
+        <button class="btn-outline">Save & exit</button>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <p class="step-label">Step 1</p>
+      <h1 class="step-title">Tell us about your place</h1>
+      <p class="step-desc">
+        In this step, we'll ask you which type of property you have and if guests will book the entire place or just a room. 
+        Then let us know the location and how many guests can stay.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <a href="home_step_list.html" class="back-link">Back</a>
+      <button class="next-btn" onclick="goNext()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    function goNext() {
+        window.location.href = 'home_step_1_1.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Place Basics</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #222;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+/* Header */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 30px;
+}
+
+.top-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-outline {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Content */
+.main {
+  margin-top: 60px;
+  max-width: 600px;
+}
+
+.main h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.counter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.counter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.counter-row:last-child {
+  border-bottom: 1px solid #eee;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.controls button {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.controls .count {
+  width: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  border-top: 2px solid #eee;
+  margin-top: 30px;
+}
+
+.back-link {
+  font-size: 14px;
+  text-decoration: underline;
+  color: #222;
+  cursor: pointer;
+}
+
+.next-btn {
+  background-color: #222;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="top-bar">
+      <h2>logo</h2>
+      <div class="top-actions">
+        <button class="btn-outline">Questions?</button>
+        <button class="btn-outline">Save & exit</button>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="main">
+      <h2>Share some basics about your place</h2>
+      <p class="subtext">You'll add more details later, like bed types.</p>
+
+      <div class="counter-group">
+        <div class="counter-row" data-name="guests">
+          <span>Guests</span>
+          <div class="controls">
+            <button class="minus">−</button>
+            <span class="count">4</span>
+            <button class="plus">+</button>
+          </div>
+        </div>
+        <div class="counter-row" data-name="bedrooms">
+          <span>Bedrooms</span>
+          <div class="controls">
+            <button class="minus">−</button>
+            <span class="count">1</span>
+            <button class="plus">+</button>
+          </div>
+        </div>
+        <div class="counter-row" data-name="beds">
+          <span>Beds</span>
+          <div class="controls">
+            <button class="minus">−</button>
+            <span class="count">1</span>
+            <button class="plus">+</button>
+          </div>
+        </div>
+        <div class="counter-row" data-name="bathrooms">
+          <span>Bathrooms</span>
+          <div class="controls">
+            <button class="minus">−</button>
+            <span class="count">1</span>
+            <button class="plus">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <a class="back-link" href="home_step_1_5.html">Back</a>
+      <button class="next-btn" onclick="goNext()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.counter-row').forEach(row => {
+      const countSpan = row.querySelector('.count');
+      const minusBtn = row.querySelector('.minus');
+      const plusBtn = row.querySelector('.plus');
+
+      minusBtn.addEventListener('click', () => {
+        let value = parseInt(countSpan.textContent);
+        if (value > 1) {
+          countSpan.textContent = value - 1;
+        }
+      });
+
+      plusBtn.addEventListener('click', () => {
+        let value = parseInt(countSpan.textContent);
+        countSpan.textContent = value + 1;
+      });
+    });
+
+    function goNext() {
+      window.location.href = 'home_step_1_7.html';
+    }
+  </script>
+</body>
+</html>

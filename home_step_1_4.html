@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirm Address</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #222;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Top */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 30px;
+}
+
+.top-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-outline {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Main form */
+.main-form {
+  margin-top: 40px;
+  max-width: 600px;
+}
+
+.main-form h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.address-form input,
+.address-form select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Toggle */
+.location-toggle {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.location-toggle a {
+  color: #555;
+  text-decoration: underline;
+  font-size: 13px;
+}
+
+/* Switch */
+.switch {
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: relative;
+  cursor: pointer;
+  width: 40px;
+  height: 22px;
+  background-color: #ccc;
+  border-radius: 22px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #222;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+/* Map */
+.map-section {
+  display: none;
+  margin-top: 30px;
+}
+
+.map-tip {
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.map {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  border: none;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+  border-top: 2px solid #eee;
+  margin-top: 50px;
+}
+
+.back-link {
+  font-size: 14px;
+  text-decoration: underline;
+  color: #222;
+  cursor: pointer;
+}
+
+.next-btn {
+  background-color: #222;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="top-bar">
+      <h2>logo</h2>
+      <div class="top-actions">
+        <button class="btn-outline">Questions?</button>
+        <button class="btn-outline">Save & exit</button>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="main-form">
+      <h2>Confirm your address</h2>
+      <p class="subtext">Your address is only shared with guests after they’ve made a reservation.</p>
+
+      <form class="address-form">
+        <select>
+          <option selected>Bangladesh - BD</option>
+          <option>India - IN</option>
+          <option>United States - US</option>
+        </select>
+
+        <input type="text" placeholder="Street address" value="53 South Nalapara Road" />
+        <input type="text" placeholder="Apt, floor, bldg (if applicable)" />
+        <input type="text" placeholder="City / town / village" value="Chittagong" />
+        <input type="text" placeholder="Province / state / territory (if applicable)" value="Chittagong Division" />
+        <input type="text" placeholder="Postal code (if applicable)" value="4000" />
+      </form>
+
+      <div class="location-toggle">
+        <p><strong>Show your specific location</strong></p>
+        <p class="subtext">Make it clear to guests where your place is located. We’ll only share your address after they’ve made a reservation. <a href="#">Learn more</a></p>
+        <label class="switch">
+          <input type="checkbox" id="toggleMap" />
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="map-section" id="mapSection">
+        <div class="map-tip">We’ll share your approximate location.</div>
+        <iframe
+          class="map"
+          src="https://maps.google.com/maps?q=Chittagong&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0"
+        ></iframe>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <a class="back-link" href="home_step_1_3.html">Back</a>
+      <button class="next-btn" onclick="goNext()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    function goNext() {
+      window.location.href = "home_step_1_5.html";
+    }
+  </script>
+</body>
+</html>
