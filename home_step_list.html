@@ -128,7 +128,7 @@ hr {
     <!-- Main Content -->
     <div class="content">
       <div class="left">
-        <h1>It’s easy to get started on Airbnb</h1>
+        <h1>It’s easy to get <br> started on Airbnb</h1>
       </div>
       <div class="right">
         <div class="step">
@@ -136,7 +136,7 @@ hr {
             <h4>1 &nbsp; Tell us about your place</h4>
             <p>Share some basic info, like where it is and how many guests can stay.</p>
           </div>
-          <img src="https://a0.muscache.com/im/pictures/07faec70-6d87-4439-b6cb-2c1e35e6e2a5.jpg" alt="Step 1">
+          <h2>🏠</h2>
         </div>
         <hr>
         <div class="step">
@@ -144,7 +144,7 @@ hr {
             <h4>2 &nbsp; Make it stand out</h4>
             <p>Add 5 or more photos plus a title and description—we’ll help you out.</p>
           </div>
-          <img src="https://a0.muscache.com/im/pictures/ebedcc8f-236b-496c-bb53-8457f9f9c733.jpg" alt="Step 2">
+          <h2>🏠</h2>
         </div>
         <hr>
         <div class="step">
@@ -152,22 +152,22 @@ hr {
             <h4>3 &nbsp; Finish up and publish</h4>
             <p>Choose a starting price, verify a few details, then publish your listing.</p>
           </div>
-          <img src="https://a0.muscache.com/im/pictures/453b9ac7-9b94-48ac-8413-f5b738e6b635.jpg" alt="Step 3">
+          <h2>🏠</h2>
         </div>
       </div>
     </div>
 
     <!-- Footer Button -->
     <div class="footer">
-      <button class="start-btn">Get started</button>
+      <button class="start-btn" id="getStartedButton">Get started</button>
     </div>
   </div>
 
   <script>
-    document.querySelector(".start-btn").addEventListener("click", function() {
-      alert("Proceeding to setup...");
-      // Redirect logic goes here
-    });
+    //Create Listing Button
+    getStartedButton.addEventListener('click',function(){
+        window.location.href = 'home_step_1.html';
+    })
   </script>
 </body>
 </html>
